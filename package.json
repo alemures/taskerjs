@@ -1,0 +1,18 @@
+{
+  "name": "taskerjs",
+  "version": "0.0.2",
+  "description": "This module contain any features to process tasks.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "collections": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
