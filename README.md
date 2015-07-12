@@ -1,11 +1,11 @@
 taskerjs
 ===
-This module contain any features to process tasks.
+This module contains features to process tasks.
 
 Accumulator
 ---
 
-This class allow to you process tasks in bulk.
+This class allows to process tasks in bulk. 
 
 ```
 var taskerjs = require('taskerjs');
