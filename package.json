@@ -1,18 +1,27 @@
 {
   "name": "taskerjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This module contains features to process tasks.",
+  "author": "Alejandro Santiago Nieto",
+  "license": "ISC",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "dependencies": {
     "collections": "^1.2.3"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "node test/test.js"
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "jscs": "^2.0.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5",
+    "nodemon": "^1.4.0"
   },
-  "author": "Alejandro Santiago Nieto",
-  "license": "ISC"
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test/*.js",
+    "watch": "nodemon index.js --watch index.js --watch lib/*.js",
+    "jshint": "jshint index.js lib/*.js test/*.js examples/*.js",
+    "jscs": "jscs index.js lib/*.js test/*.js examples/*.js",
+    "jscs:fix": "jscs --fix index.js lib/*.js test/*.js examples/*.js",
+    "check": "npm run test && npm run jshint && npm run jscs && npm outdated"
+  }
 }
