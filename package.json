@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This module contains features to process tasks.",
   "author": "Alejandro Santiago Nieto",
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "dependencies": {
     "collections": "^1.2.3"
