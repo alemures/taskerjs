@@ -1,6 +1,6 @@
 {
   "name": "taskerjs",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "This module contains features to process tasks.",
   "author": "Alejandro Santiago Nieto",
   "license": "ISC",
