@@ -19,3 +19,5 @@ process.stdin.on('data', function(data) {
 
   acc.add({data: 'Secret'});
 });
+
+console.log('Press enter to add one task');

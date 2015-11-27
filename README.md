@@ -2,9 +2,10 @@ taskerjs
 ===
 This module contains features to process tasks.
 
-Accumulator
----
+### Installation
+`npm install taskerjs`
 
+### Accumulator
 This class allows to process tasks in bulk. 
 
 ```
@@ -24,4 +25,26 @@ acc.setWorker(function(tasks, cb) {
 acc.add('Tasks number 1');
 acc.add(1);
 acc.add({data: 1});
+```
+
+### Delayer
+This class allows set timeouts with ids so they can be overridden and reset easily.
+
+```
+var taskerjs = require('taskerjs');
+
+var delayer = new taskerjs.Delayer();
+
+delayer.add('#1', action('first'), 2000);
+delayer.add('#2', action('second'), 2000);
+delayer.add('#3', action('third'), 2000);
+
+// It Will override action('first') that never will be called
+delayer.add('#1', action('fourth'), 3000);
+
+function action(order) {
+  return function() {
+    console.log('Executing ' + order + 'action');
+  };
+}
 ```

@@ -1,12 +1,13 @@
 {
   "name": "taskerjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This module contains features to process tasks.",
   "author": "Alejandro Santiago Nieto",
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "collections": "^1.2.3"
+    "collections": "^1.2.3",
+    "debug": "^2.2.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",
