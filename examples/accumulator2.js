@@ -8,16 +8,16 @@ var acc = new taskerjs.Accumulator({
   maxTasksLimit: 800 // Max number of tasks by worker execution
 });
 
-acc.setWorker(function(tasks, cb) {
+acc.setWorker(function (tasks, cb) {
   console.log(tasks);
   cb();
 });
 
 process.stdin.resume();
-process.stdin.on('data', function(data) {
+process.stdin.on('data', function (data) {
   data = data.toString().trim();
 
-  acc.add({data: 'Secret'});
+  acc.add({ data: 'Secret' });
 });
 
 console.log('Press enter to add one task');

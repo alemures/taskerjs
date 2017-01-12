@@ -8,7 +8,7 @@ var acc = new taskerjs.Accumulator({
   maxTasksLimit: 800 // Max number of tasks by worker execution
 });
 
-acc.setWorker(function(tasks, cb) {
+acc.setWorker(function (tasks, cb) {
   console.log(tasks.length + ' tasks processed');
   cb();
 });
@@ -17,7 +17,7 @@ for (var i = 0; i < 111100; i++) {
   acc.add(createQuery());
 }
 
-setInterval(function() {
+setInterval(function () {
   for (var i = 0; i < 2600; i++) {
     acc.add(createQuery());
   }

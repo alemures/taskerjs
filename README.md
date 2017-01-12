@@ -1,6 +1,6 @@
 taskerjs
 ===
-This module contains features to process tasks.
+Utilities to work with tasks.
 
 ### Installation
 `npm install taskerjs`

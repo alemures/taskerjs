@@ -12,7 +12,7 @@ delayer.add('#3', action('third'), 2000);
 delayer.add('#1', action('fourth'), 3000);
 
 function action(order) {
-  return function() {
+  return function () {
     console.log('Executing ' + order + 'action');
   };
 }

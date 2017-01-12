@@ -1,25 +1,22 @@
 {
   "name": "taskerjs",
   "version": "1.1.1",
-  "description": "This module contains features to process tasks.",
+  "description": "Utilities to work with tasks.",
   "author": "Alejandro Santiago Nieto",
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "collections": "^1.2.3",
-    "debug": "^2.2.0"
+    "debug": "2.x.x",
+    "collections": "5.x.x"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "jscs": "^2.0.0",
-    "jshint": "^2.8.0",
-    "mocha": "^2.2.5",
-    "nodemon": "^1.4.0"
+    "chai": "3.x.x",
+    "jscs": "3.x.x",
+    "jshint": "2.x.x",
+    "mocha": "3.x.x"
   },
   "scripts": {
-    "start": "node index.js",
     "test": "mocha test/*.js",
-    "watch": "nodemon index.js --watch index.js --watch lib/*.js",
     "jshint": "jshint index.js lib/*.js test/*.js examples/*.js",
     "jscs": "jscs index.js lib/*.js test/*.js examples/*.js",
     "jscs:fix": "jscs --fix index.js lib/*.js test/*.js examples/*.js",
