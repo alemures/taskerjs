@@ -1,22 +1,18 @@
-'use strict';
+const Accumulator = require('../lib/Accumulator');
 
-var taskerjs = require('../index');
-
-var acc = new taskerjs.Accumulator({
+const acc = new Accumulator({
   tasksLimit: 80, // Limit of tasks to call to the worker
   timeLimit: 3000, // Elapsed time between calls to the worker in milliseconds
-  maxTasksLimit: 800 // Max number of tasks by worker execution
+  maxTasksLimit: 800, // Max number of tasks by worker execution
 });
 
-acc.setWorker(function (tasks, cb) {
+acc.setWorker((tasks, done) => {
   console.log(tasks);
-  cb();
+  done();
 });
 
 process.stdin.resume();
-process.stdin.on('data', function (data) {
-  data = data.toString().trim();
-
+process.stdin.on('data', () => {
   acc.add({ data: 'Secret' });
 });
 
