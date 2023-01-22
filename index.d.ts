@@ -1,4 +1,4 @@
-declare module "Accumulator" {
+declare module "lib/Accumulator" {
     export = Accumulator;
     /**
      * @callback AccumulatorWorker
@@ -69,7 +69,7 @@ declare module "Accumulator" {
     import Denque = require("denque");
     type AccumulatorWorker = (tasks: any[], done: Function) => any;
 }
-declare module "Delayer" {
+declare module "lib/Delayer" {
     export = Delayer;
     class Delayer {
         /**
@@ -100,4 +100,8 @@ declare module "Delayer" {
          */
         _cbWrapper(taskId: string, cb: Function): () => void;
     }
+}
+declare module "taskerjs" {
+    export const Accumulator: typeof import("lib/Accumulator");
+    export const Delayer: typeof import("lib/Delayer");
 }
