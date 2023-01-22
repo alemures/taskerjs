@@ -1,6 +1,6 @@
 {
   "name": "taskerjs",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0",
   "description": "Utilities to work with tasks.",
   "author": "Alejandro Santiago Nieto",
   "license": "ISC",
