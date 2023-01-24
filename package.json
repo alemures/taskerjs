@@ -34,7 +34,6 @@
     "lib"
   ],
   "scripts": {
-    "start": "node index.js",
     "test": "mocha --require test/setup.js --ignore test/setup.js test/*.js",
     "test:cover": "nyc --reporter=lcov --reporter=text-summary --all --include \"lib/*.js\" npm test",
     "lint": "eslint index.js lib/*.js test/*.js examples/*.js scripts/*.js",
