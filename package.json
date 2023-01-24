@@ -37,10 +37,10 @@
     "start": "node index.js",
     "test": "mocha --require test/setup.js --ignore test/setup.js test/*.js",
     "test:cover": "nyc --reporter=lcov --reporter=text-summary --all --include \"lib/*.js\" npm test",
-    "lint": "eslint index.js lib/*.js test/*.js",
+    "lint": "eslint index.js lib/*.js test/*.js examples/*.js scripts/*.js",
     "lint:fix": "npm run lint -- --fix",
     "types": "tsc",
-    "types:generate": "tsc -p tsconfig.types.json && sed -i 's/\"index\"/\"taskerjs\"/' index.d.ts",
+    "types:generate": "tsc -p tsconfig.types.json && node scripts/fix-declaration.js",
     "check": "npm test && npm run lint && npm run types && npm outdated"
   }
 }
