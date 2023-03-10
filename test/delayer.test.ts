@@ -1,25 +1,18 @@
-const { expect } = require('chai');
-const Delayer = require('../lib/Delayer');
+import { Delayer } from '../src/Delayer';
 
 describe('Delayer', () => {
   describe('constructor', () => {
     it('should return a Delayer instance', () => {
       const delayer = new Delayer();
-      expect(delayer).to.be.an.instanceof(Delayer);
+      expect(delayer).toBeInstanceOf(Delayer);
     });
   });
 
   describe('#add()', () => {
     it('should add a task', (done) => {
-      /**
-       * @type {string[]}
-       */
-      const executedActions = [];
+      const executedActions: string[] = [];
 
-      /**
-       * @param {string} order
-       */
-      function action(order) {
+      function action(order: string) {
         return () => {
           executedActions.push(order);
         };
@@ -32,7 +25,7 @@ describe('Delayer', () => {
       delayer.add('#3', action('fourth'), 5);
 
       setTimeout(() => {
-        expect(executedActions).to.be.deep.equal(['fourth', 'first', 'second']);
+        expect(executedActions).toEqual(['fourth', 'first', 'second']);
         done();
       }, 15);
     });
@@ -43,39 +36,39 @@ describe('Delayer', () => {
       const delayer = new Delayer();
       delayer.add('#1', done, 10);
 
-      expect(delayer.isDelayed('#1')).to.be.equal(true);
-      expect(delayer.isDelayed('#2')).to.be.equal(false);
+      expect(delayer.isDelayed('#1')).toBe(true);
+      expect(delayer.isDelayed('#2')).toBe(false);
     });
   });
 
   describe('#remove()', () => {
     it('should remove a task by id', () => {
       const delayer = new Delayer();
-      delayer.add('#1', () => {}, 10);
-      expect(delayer.isDelayed('#1')).to.be.equal(true);
+      delayer.add('#1', jest.fn(), 10);
+      expect(delayer.isDelayed('#1')).toBe(true);
       delayer.remove('#1');
-      expect(delayer.isDelayed('#1')).to.be.equal(false);
+      expect(delayer.isDelayed('#1')).toBe(false);
     });
 
     it('should ignore unknown task ids', (done) => {
       const delayer = new Delayer();
       delayer.add('#1', done, 10);
-      expect(delayer.isDelayed('#1')).to.be.equal(true);
+      expect(delayer.isDelayed('#1')).toBe(true);
       delayer.remove('#2');
-      expect(delayer.isDelayed('#1')).to.be.equal(true);
+      expect(delayer.isDelayed('#1')).toBe(true);
     });
   });
 
   describe('#removeAll()', () => {
     it('should remove all tasks', () => {
       const delayer = new Delayer();
-      delayer.add('#1', () => {}, 10);
-      delayer.add('#2', () => {}, 10);
-      expect(delayer.isDelayed('#1')).to.be.equal(true);
-      expect(delayer.isDelayed('#2')).to.be.equal(true);
+      delayer.add('#1', jest.fn(), 10);
+      delayer.add('#2', jest.fn(), 10);
+      expect(delayer.isDelayed('#1')).toBe(true);
+      expect(delayer.isDelayed('#2')).toBe(true);
       delayer.removeAll();
-      expect(delayer.isDelayed('#1')).to.be.equal(false);
-      expect(delayer.isDelayed('#2')).to.be.equal(false);
+      expect(delayer.isDelayed('#1')).toBe(false);
+      expect(delayer.isDelayed('#2')).toBe(false);
     });
   });
 });

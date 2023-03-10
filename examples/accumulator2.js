@@ -1,4 +1,4 @@
-const Accumulator = require('../lib/Accumulator');
+const { Accumulator } = require('../dist/Accumulator');
 
 const acc = new Accumulator({
   tasksLimit: 80, // Limit of tasks to call to the worker

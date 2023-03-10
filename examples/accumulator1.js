@@ -1,4 +1,4 @@
-const Accumulator = require('../lib/Accumulator');
+const { Accumulator } = require('../dist/Accumulator');
 
 function createQuery() {
   return 'select * from user where name like "A%" and age > 18 order by name limit 100;';

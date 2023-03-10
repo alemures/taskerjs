@@ -1,4 +1,4 @@
-const Delayer = require('../lib/Delayer');
+const { Delayer } = require('../dist/Delayer');
 
 /**
  * @param {string} order

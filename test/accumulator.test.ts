@@ -1,11 +1,10 @@
-const { expect } = require('chai');
-const Accumulator = require('../lib/Accumulator');
+import { Accumulator } from '../src/Accumulator';
 
 describe('Accumulator', () => {
   describe('constructor', () => {
     it('should return a Accumulator instance', () => {
       const acc = new Accumulator();
-      expect(acc).to.be.an.instanceof(Accumulator);
+      expect(acc).toBeInstanceOf(Accumulator);
       acc.stop();
     });
     it('should return a Accumulator instance with custom config', () => {
@@ -14,12 +13,12 @@ describe('Accumulator', () => {
         timeLimit: 1000,
         maxTasksLimit: 800,
       });
-      expect(acc).to.be.an.instanceof(Accumulator);
+      expect(acc).toBeInstanceOf(Accumulator);
       acc.stop();
     });
     it('should return a started Accumulator instance', () => {
       const acc = new Accumulator();
-      expect(acc.isRunning()).to.be.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.stop();
     });
   });
@@ -30,7 +29,7 @@ describe('Accumulator', () => {
       acc.add(1);
       acc.add(2);
       acc.add(3);
-      expect(acc.size()).to.equal(3);
+      expect(acc.size()).toBe(3);
       acc.stop();
     });
   });
@@ -39,7 +38,7 @@ describe('Accumulator', () => {
     it('should add a list of tasks', () => {
       const acc = new Accumulator();
       acc.addAll([1, 2, 3]);
-      expect(acc.size()).to.equal(3);
+      expect(acc.size()).toBe(3);
       acc.stop();
     });
   });
@@ -48,7 +47,7 @@ describe('Accumulator', () => {
     it('should return the current number of tasks', () => {
       const acc = new Accumulator();
       acc.addAll([1, 2, 3]);
-      expect(acc.size()).to.equal(3);
+      expect(acc.size()).toBe(3);
       acc.stop();
     });
   });
@@ -57,7 +56,7 @@ describe('Accumulator', () => {
     it('should remove a range of tasks', () => {
       const acc = new Accumulator();
       acc.addAll([1, 2, 3]);
-      expect(acc.removeRange(1, 1)).to.deep.equal([2]);
+      expect(acc.removeRange(1, 1)).toEqual([2]);
       acc.stop();
     });
   });
@@ -66,9 +65,9 @@ describe('Accumulator', () => {
     it('should remove all of tasks', () => {
       const acc = new Accumulator();
       acc.addAll([1, 2, 3]);
-      expect(acc.size()).to.equal(3);
+      expect(acc.size()).toBe(3);
       acc.removeAll();
-      expect(acc.size()).to.equal(0);
+      expect(acc.size()).toBe(0);
       acc.stop();
     });
   });
@@ -77,19 +76,19 @@ describe('Accumulator', () => {
     it('should start executing tasks', () => {
       const acc = new Accumulator();
       acc.stop();
-      expect(acc.isRunning()).to.equal(false);
+      expect(acc.isRunning()).toBe(false);
       acc.start();
-      expect(acc.isRunning()).to.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.stop();
     });
 
     it('should ignore multiple calls', () => {
       const acc = new Accumulator();
       acc.stop();
-      expect(acc.isRunning()).to.equal(false);
+      expect(acc.isRunning()).toBe(false);
       acc.start();
       acc.start();
-      expect(acc.isRunning()).to.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.stop();
     });
   });
@@ -97,26 +96,26 @@ describe('Accumulator', () => {
   describe('#stop()', () => {
     it('should stop executing tasks', () => {
       const acc = new Accumulator();
-      expect(acc.isRunning()).to.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.stop();
-      expect(acc.isRunning()).to.equal(false);
+      expect(acc.isRunning()).toBe(false);
     });
 
     it('should ignore multiple calls', () => {
       const acc = new Accumulator();
-      expect(acc.isRunning()).to.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.stop();
       acc.stop();
-      expect(acc.isRunning()).to.equal(false);
+      expect(acc.isRunning()).toBe(false);
     });
   });
 
   describe('#restart()', () => {
     it('should stop and start executing tasks', () => {
       const acc = new Accumulator();
-      expect(acc.isRunning()).to.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.restart();
-      expect(acc.isRunning()).to.equal(true);
+      expect(acc.isRunning()).toBe(true);
       acc.stop();
     });
   });
@@ -127,7 +126,7 @@ describe('Accumulator', () => {
         timeLimit: 5,
       });
       acc.setWorker((tasks, cb) => {
-        expect(tasks).to.be.deep.equal([1, 2, 3]);
+        expect(tasks).toEqual([1, 2, 3]);
         cb();
 
         acc.stop();
@@ -143,7 +142,7 @@ describe('Accumulator', () => {
       });
       let processedTasks = 0;
       acc.setWorker((tasks, cb) => {
-        expect(tasks.length).to.be.equal(2);
+        expect(tasks.length).toBe(2);
         processedTasks += 2;
         cb();
 
@@ -162,7 +161,7 @@ describe('Accumulator', () => {
       });
       let processedTasks = 0;
       acc.setWorker((tasks, cb) => {
-        expect(tasks.length).to.be.equal(2);
+        expect(tasks.length).toBe(2);
         processedTasks += 2;
         cb();
 
@@ -181,7 +180,7 @@ describe('Accumulator', () => {
   describe('#toString()', () => {
     it('should return a string representation of the instance', () => {
       const acc = new Accumulator();
-      expect(acc.toString()).to.equal('[]');
+      expect(acc.toString()).toBe('[]');
       acc.stop();
     });
   });
